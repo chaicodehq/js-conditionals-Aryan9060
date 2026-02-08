@@ -21,15 +21,15 @@
  * @returns {string} The weather advisory message
  */
 export function getWeatherAdvice(temperature, isRaining) {
-  if (temp < 0 || temp != Number) return -1;
+  if (typeof temperature != 'number') return -1;
 
-  if (temp >= 35) return "Too hot for hiking - stay indoors and hydrate";
-  else if (temp >= 25 && isRaining ) return "Great weather for hiking - don't forget sunscreen";
-  else if (temp >= 25 && isRaining ) return "Warm but rainy - consider indoor activities";
-  else if (temp >= 15 && isRaining ) return "Perfect hiking weather - enjoy the trails";
-  else if (temp >= 15 && isRaining ) return "Cool and rainy - bring waterproof gear if hiking";
-  else if (temp >= 5 && isRaining ) return "Chilly - wear layers for your hike";
-  else if (temp >= 5 && isRaining ) return "Cold and wet - best to stay indoors";
-  else if (temp < 5) return "Too cold - stay warm indoors";
+  if (temperature >= 35) return "Too hot for hiking - stay indoors and hydrate";
+  else if (temperature >= 25 && !isRaining ) return "Great weather for hiking - don't forget sunscreen";
+  else if (temperature >= 25 && isRaining ) return "Warm but rainy - consider indoor activities";
+  else if (temperature >= 15 && !isRaining ) return "Perfect hiking weather - enjoy the trails";
+  else if (temperature >= 15 && isRaining ) return "Cool and rainy - bring waterproof gear if hiking";
+  else if (temperature >= 5 && !isRaining ) return "Chilly - wear layers for your hike";
+  else if (temperature >= 5 && isRaining ) return "Cold and wet - best to stay indoors";
+  else if (temperature < 5) return "Too cold - stay warm indoors";
 
 }

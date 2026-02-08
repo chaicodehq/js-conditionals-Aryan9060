@@ -29,5 +29,31 @@
  * @returns {number} Shipping cost, 0 for free shipping, or -1 for invalid input
  */
 export function calculateShipping(weight, country, orderTotal) {
-  // Your code here
+  // Your code here]
+
+  if (weight <= 0 || orderTotal <= 0) return -1
+
+  if (country === "US") {
+    if (weight <= 1 && orderTotal <= 50) {
+      return 5;
+    } else if (weight <= 5 && orderTotal <= 50) {
+      return 10;
+    } else if (weight > 5 && orderTotal <= 50) {
+      return 15;
+    } else {
+      console.log("shapping :- ", weight, country, orderTotal);
+
+      return 0;
+    }
+  } else {
+    if (weight <= 1 && orderTotal <= 100) {
+      return 15;
+    } else if (weight <= 5 && orderTotal <= 100) {
+      return 25;
+    } else if (weight > 5 && orderTotal <= 100) {
+      return 40;
+    } else {
+      return 0;
+    }
+  }
 }

@@ -31,11 +31,15 @@
  * @returns {number} Total price or -1 for invalid input
  */
 export function calculateCoffeePrice(size, type, extras = {}) {
+
+  //Validate condition
   if (size !== "small" && size !== 'medium' && size !== "large") return -1;
   if (type !== 'regular' && type !== 'latte' && type !== 'cappuccino' && type !== 'mocha') return -1;
 
 
   let price = 0;
+
+  // Chalke prige 
   switch (size) {
 
     case 'small':
@@ -52,6 +56,7 @@ export function calculateCoffeePrice(size, type, extras = {}) {
 
   }
 
+  // Chake type
   switch (type) {
     case 'regular':
       price += 0.00;
@@ -70,6 +75,7 @@ export function calculateCoffeePrice(size, type, extras = {}) {
 
   }
 
+  // Add-on
   if (extras.whippedCream) price += 0.50
   if (extras.extraShot) price += 0.75;
 

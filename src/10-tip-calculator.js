@@ -30,5 +30,46 @@
  * @returns {{ tipPercentage: number, tipAmount: number, totalAmount: number } | null}
  */
 export function calculateTip(billAmount, serviceRating) {
-  // Your code here
+
+  // Chaking for given input is currect
+  if (billAmount <= 0) return null;
+  if (serviceRating < 1 || serviceRating > 5 || !Number.isInteger(serviceRating)) return null;
+
+  // Diclaration variable
+  let tipPercentage = 0;
+  let tipAmount = 0;
+
+  // Calculating tipAmount and tipPercentage 
+  switch (serviceRating) {
+    case 1:
+      tipPercentage = 5;
+      tipAmount = billAmount * (5 / 100);
+      break;
+
+    case 2:
+      tipPercentage = 10;
+      tipAmount = billAmount * (10 / 100);
+      break;
+    case 3:
+      tipPercentage = 15;
+      tipAmount = billAmount * (15 / 100);
+      break;
+    case 4:
+      tipPercentage = 20;
+      tipAmount = billAmount * (20 / 100);
+      break;
+    case 5:
+      tipPercentage = 25;
+      tipAmount = billAmount * (25 / 100);
+      break;
+
+  }
+
+
+  // rounded to 2 decimal places
+  const totalAmount = Math.round((tipAmount + billAmount) * 100) / 100;
+  tipPercentage = Math.round((tipPercentage * 100) / 100)
+  tipAmount = Math.round(tipAmount * 100) / 100
+
+  return { tipPercentage: tipPercentage, tipAmount: tipAmount, totalAmount: totalAmount };
 }

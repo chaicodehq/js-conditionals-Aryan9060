@@ -22,7 +22,11 @@
  * @returns {string} The driving action to take
  */
 export function getTrafficAction(color) {
+
+  // convert string into uppercase
   let colors = color.toUpperCase()
+
+  //Chake condition
   if (colors == 'GREEN') return 'GO'
   else if (colors == 'YELLOW') return 'SLOW DOWN'
   else if (colors == 'RED') return 'STOP'

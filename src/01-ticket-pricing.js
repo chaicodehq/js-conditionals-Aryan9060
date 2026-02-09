@@ -23,11 +23,13 @@
  * @returns {number} The ticket price, or -1 for invalid input
  */
 export function getTicketPrice(age, isWeekend) {
-
+//To chake given input is currect
   if (age < 0 || typeof age !== "number") return -1;
 
+  //Initialize the valu
   let price;
 
+  // To chake condition
   if (age >= 0 && age <= 12) {
     price = 8;
   } else if (age > 12 && age <= 17) {
@@ -38,6 +40,8 @@ export function getTicketPrice(age, isWeekend) {
     price = 10;
   }
 
+
+  //Weekend days chake 
   if (isWeekend) {
     price = price + 3;
   }

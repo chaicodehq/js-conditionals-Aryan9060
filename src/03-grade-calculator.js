@@ -25,12 +25,16 @@
  * @returns {string} The letter grade or "INVALID"
  */
 export function calculateGrade(score, hasExtraCredit) {
+
+  // Validate inpute 
   if (score < 0 || score > 100) return "INVALID";
 
+  // chake extracredit
   if (hasExtraCredit && score <= 95) {
     score += 5;
   }
 
+  // Evaluate condition
   if (score >= 90 && score <= 100) return "A";
   else if (score < 90 && score >= 80) return "B";
   else if (score < 80 && score >= 70) return "C";

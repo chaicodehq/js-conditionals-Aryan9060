@@ -21,8 +21,11 @@
  * @returns {string} The weather advisory message
  */
 export function getWeatherAdvice(temperature, isRaining) {
+
+  // Validate input
   if (typeof temperature != 'number') return -1;
 
+  // Evaluate condition
   if (temperature >= 35) return "Too hot for hiking - stay indoors and hydrate";
   else if (temperature >= 25 && !isRaining ) return "Great weather for hiking - don't forget sunscreen";
   else if (temperature >= 25 && isRaining ) return "Warm but rainy - consider indoor activities";
